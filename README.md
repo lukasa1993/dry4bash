@@ -1,22 +1,13 @@
 # dry4bash
 
-`dry4bash` finds duplicated normalized token blocks in Bash source files.
-
-## Install
+`dry4bash` finds normalized duplicate code in Bash projects with Tree-sitter tokens. It reports cross-file and non-overlapping same-file duplicates, extends matching windows to maximal blocks, and suppresses contained results.
 
 ```bash
 pipx install git+https://github.com/lukasa1993/dry4bash.git
-```
-
-## Run
-
-```bash
 dry4bash --min-tokens 30 --fail
 ```
 
-Identifiers and numeric literals are normalized. Comments and string contents do not affect matching. Use positional path fragments to limit the scan. Use `--json` for machine-readable output.
-
-Exit status `2` means that duplication was found while `--fail` was active.
+Exit status: `0` pass, `1` analysis error, `2` duplicates found when `--fail` is active.
 
 ## Development
 
